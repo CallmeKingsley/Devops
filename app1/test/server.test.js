@@ -16,6 +16,7 @@ describe("App1 API Tests", () => {
     expect(response.body.status).toBe("UP");
   });
 
+  
   test("POST /echo should return request body", async () => {
     const payload = { name: "Kingsley" };
 
