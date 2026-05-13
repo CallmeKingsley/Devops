@@ -1,0 +1,31 @@
+name: Main-workflow
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      did_App1_code_change: ${{ steps.filter.outputs.App1 }}
+      did_App2_code_change: ${{ steps.filter.outputs.App2 }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Detect Changed Files
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            App1:
+              - 'app1/src/**'
+              - 'app1/test/**'
+            App2:
+              - 'app2/src/**'
+              - 'app2/test/**'
+
+      - name: Snaity change
+        run: |
+          echo "Did app one info change ${{ did_App1_code_change }}"
