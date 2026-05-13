@@ -26,6 +26,7 @@ jobs:
               - 'app2/src/**'
               - 'app2/test/**'
 
-      - name: Snaity change
+      - name: Sanity check
         run: |
-          echo "Did app one info change ${{ did_App1_code_change }}"
+          echo "Did app one info change: ${{ steps.filter.outputs.App1 }}"
+          echo "Did app two info change: ${{ steps.filter.outputs.App2 }}"
