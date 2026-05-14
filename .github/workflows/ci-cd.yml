@@ -69,6 +69,6 @@ jobs:
 
   BuildApp:
     name: buildAppp
-    use: ./.github/workflows/run-build.yml
+    uses: ./.github/workflows/run-build.yml
     with: 
       env: dev

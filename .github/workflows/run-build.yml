@@ -48,7 +48,7 @@ jobs:
       # - name: Build Docker Image
       #   run: docker build -t app-image .
       - name: Build Docker Image
-        use: |
+        uses: |
           pw
           ls -al
           
