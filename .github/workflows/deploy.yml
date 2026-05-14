@@ -1,0 +1,12 @@
+name: deploy 
+
+on: 
+  workflow_run:
+    workflow: ['Build']
+    type: [completed]
+  
+jobs:
+   deployment:
+     name: "deployment to where-ever"
+     run: |
+        echo "i am ready"
