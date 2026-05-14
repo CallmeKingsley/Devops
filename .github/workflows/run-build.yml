@@ -47,7 +47,7 @@ jobs:
 
       # - name: Build Docker Image
       #   run: docker build -t app-image .
-      - name: Build Docker Image
-        uses: |
+      - name: check current file directory
+        run: |
           ls -al
           
