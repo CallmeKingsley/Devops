@@ -9,8 +9,13 @@ on:
         default: dev
         type: string
 
-      FilePath:
+      filePath:
         description: Application directory path
+        required: false
+        type: string
+
+      appDockerName:
+        description: docker App Name
         required: false
         type: string
 
@@ -43,13 +48,13 @@ jobs:
       #   run: docker build -t app-image .
       - name: check current file directory
         run: |
+          cd ${{ inputs.filePath }}
           ls -al
       
-      - name: navigate to directory
+      - name: Build Docker Image
         run: |
-          cd ${{ inputs.FilePath }}
-          ls -al
-      
-      - name: check current file directory 2
-        run: |
-          ls -al
+          cd ${{ inputs.filePath }}
+
+          npm install
+
+          docker build -t ${{inputs.appDockerName}} .

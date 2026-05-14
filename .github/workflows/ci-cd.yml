@@ -67,9 +67,10 @@ jobs:
       - name: Build Docker Image
         run: docker build -t app2-image .
 
-  BuildApp:
+  BuildApps:
     name: buildAppp
     uses: ./.github/workflows/run-build.yml
     with: 
-      env: dev,
-      FilePath: app1
+      env: dev
+      filePath: app1
+      appDockerName: app1-image
