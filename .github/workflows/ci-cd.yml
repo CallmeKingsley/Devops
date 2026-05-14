@@ -71,4 +71,5 @@ jobs:
     name: buildAppp
     uses: ./.github/workflows/run-build.yml
     with: 
-      env: dev
+      env: dev,
+      FilePath: app1
